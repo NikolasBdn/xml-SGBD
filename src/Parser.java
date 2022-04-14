@@ -116,6 +116,7 @@ public class Parser {
         return count;
     }
 
+    
     public ArrayList<String> getChildsTagList(String parent) {
         ArrayList<String> childsList = new ArrayList<String>();
         try {
@@ -175,7 +176,6 @@ public class Parser {
             Element rootElement = doc.createElement("RESULTAT");
 
             for (ArrayList<String> tuple : data) {
-                System.out.println("tuple: ");
                 Element tuplesElement = doc.createElement("TUPLES");
                 rootElement.appendChild(tuplesElement);
 

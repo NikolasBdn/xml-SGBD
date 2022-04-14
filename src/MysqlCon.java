@@ -42,11 +42,13 @@ public class MysqlCon{
   }
 
   public void doStatement(String sqlString){
+	  String[] requestsList = sqlString.split("\n");
 	try {
 		Connection con = connect();
 		Statement stmt = con.createStatement();
-		String rqString = sqlString; 
-		stmt.executeUpdate(rqString);
+		for (int i = 0; i < requestsList.length; i++) {
+			stmt.executeUpdate(requestsList[i]);
+		}
 	} 
 	catch (SQLException e) {
 		e.printStackTrace();
