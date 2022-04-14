@@ -1,0 +1,84 @@
+Arbitre -
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| numArbitre  | int(11)     | YES  | YES | NULL    |       | 
+| nomArbitre  | varchar(50) | YES  |     | NULL    |       | 
+| nationalite | varchar(30) | YES  |     | NULL    |       | 
++-------------+-------------+------+-----+---------+-------+
+
+Arbitrer -
++------------+---------+------+-----+---------+-------+
+| Field      | Type    | Null | Key | Default | Extra |
++------------+---------+------+-----+---------+-------+
+| numMatch   | int(11) | YES  | YES | NULL    |       | 
+| numArbitre | int(11) | YES  | YES | NULL    |       | 
++------------+---------+------+-----+---------+-------+
+
+Equipe -
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| codeEquipe | varchar(4)  | YES  | YES | NULL    |       | 
+| pays       | varchar(50) | YES  |     | NULL    |       | 
+| couleur    | varchar(50) | YES  |     | NULL    |       | 
+| entraineur | varchar(50) | YES  |     | NULL    |       | 
++------------+-------------+------+-----+---------+-------+
+
+Jouer -
++-----------+------------+------+-----+---------+-------+
+| Field     | Type       | Null | Key | Default | Extra |
++-----------+------------+------+-----+---------+-------+
+| numMatch  | int(11)    | YES  | YES | NULL    |       | 
+| numJoueur | int(11)    | YES  | YES | NULL    |       | 
+| titulaire | varchar(2) | YES  |     | NULL    |       | 
+| tpsJeu    | int(11)    | YES  |     | NULL    |       | 
+| nbPoints  | int(11)    | YES  |     | NULL    |       | 
+| nbEssais  | int(11)    | YES  |     | NULL    |       | 
++-----------+------------+------+-----+---------+-------+
+
+Joueur -
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| numJoueur | int(11)     | YES  | YES | NULL    |       | 
+| prenom    | varchar(50) | YES  |     | NULL    |       | 
+| nom       | varchar(50) | YES  |     | NULL    |       | 
+| numPoste  | int(11)     | YES  |     | NULL    |       | 
+| equipe    | varchar(4)  | YES  |     | NULL    |       | 
++-----------+-------------+------+-----+---------+-------+
+
+Matchs-
++-------------+------------+------+-----+---------+-------+
+| Field       | Type       | Null | Key | Default | Extra |
++-------------+------------+------+-----+---------+-------+
+| numMatch    | int(11)    | YES  | YES | NULL    |       | 
+| dateMatch   | date       | YES  |     | NULL    |       | 
+| nbSpect     | int(11)    | YES  |     | NULL    |       | 
+| numStade    | int(11)    | YES  |     | NULL    |       | 
+| codeEquipeR | varchar(4) | YES  |     | NULL    |       | 
+| scoreR      | int(11)    | YES  |     | NULL    |       | 
+| nbEssaisR   | int(11)    | YES  |     | NULL    |       | 
+| codeEquipeD | varchar(4) | YES  |     | NULL    |       | 
+| scoreD      | int(11)    | YES  |     | NULL    |       | 
+| nbEssaisD   | int(11)    | YES  |     | NULL    |       | 
++-------------+------------+------+-----+---------+-------+
+
+Poste
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| numero  | int(11)     | YES  | YES | NULL    |       | 
+| libelle | varchar(50) | YES  |     | NULL    |       | 
++---------+-------------+------+-----+---------+-------+
+
+Stade
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| numStade | int(11)     | YES  | YES | NULL    |       | 
+| ville    | varchar(50) | YES  |     | NULL    |       | 
+| nomStade | varchar(30) | YES  |     | NULL    |       | 
+| capacite | int(11)     | YES  |     | NULL    |       | 
++----------+-------------+------+-----+---------+-------+
+

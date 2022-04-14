@@ -1,0 +1,13 @@
+Signer requetes SQL en XML Signees
+Resultat des requetes signes
+Deposer exemple de reponse XML signes
+29 avril 12h
+
+- Java XML Digital Signature
+
+Etapes:
+ - Connexion BDD
+ - Verif signature du fichier XML
+ - Parser en requete SQL
+ - Signer + envoyer reponse
+  - creer une paire cle pub, cle priv

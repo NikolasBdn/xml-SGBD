@@ -1,0 +1,11 @@
+<SELECT>
+<CHAMPS>
+    <CHAMP>champ1</CHAMP>
+    <CHAMP>champ2</CHAMP>
+</CHAMPS>
+<TABLES>
+    <TABLE>table1</TABLE>
+    <TABLE>table2</TABLE>
+</TABLES>
+<CONDITION>conditions</CONDITION>
+</SELECT>
