@@ -68,6 +68,7 @@ public class Main {
         // System.out.println("verifed signature: " + signatrue.verifSignature());
         break;
       case "M":
+        requete = new Maj(lienFichierXML);
         break;
       case "E":
         break;
