@@ -78,9 +78,4 @@ public class Rechercher extends Requete {
 
     return new File(xmlFileName);
   }
-
-  @Override
-  public ResultSet executSQL() {
-    return null;
-  }
 }

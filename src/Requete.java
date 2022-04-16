@@ -33,7 +33,5 @@ public abstract class Requete {
     
     public abstract String xmlToSql();
 
-    public abstract ResultSet executSQL();
-
     public abstract File sqlResponseToXML(ResultSet rs);
 }

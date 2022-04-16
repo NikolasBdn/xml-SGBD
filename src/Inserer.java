@@ -88,11 +88,6 @@ public class Inserer extends Requete {
         return sqlRequest;
     }
 
-    @Override
-    public ResultSet executSQL() {
-        return null;
-    }
-
     public File sqlResponseToXML(ResultSet rs) {
         return null;
     }

@@ -29,11 +29,6 @@ public class Maj extends Requete{
     }
 
     @Override
-    public ResultSet executSQL() {
-        return null;
-    }
-
-    @Override
     public File sqlResponseToXML(ResultSet rs) {
         return null;
     }

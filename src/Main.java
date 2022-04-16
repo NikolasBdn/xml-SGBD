@@ -30,8 +30,10 @@ public class Main {
       System.out.println(" - (E)ffacer");
       System.out.println(" - (Q)uitter");
       choix = in.nextLine();
-      if (choix.equals("R") || choix.equals("I") || choix.equals("M") || choix.equals("E") || choix.equals("Q")) {
+      if (choix.equals("R") || choix.equals("I") || choix.equals("M") || choix.equals("E")) {
         choixCorrect = true;
+      } else if (choix.equals("Q")) {
+        System.exit(0);
       }
       // Tant que le lien du fichier XML n'est pas correct
       boolean fichierCorrect = false;
@@ -71,8 +73,7 @@ public class Main {
         requete = new Maj(lienFichierXML);
         break;
       case "E":
-        break;
-      case "Q":
+        requete = new Effacer(lienFichierXML);
         break;
     } 
     // SignatureVerifXML signatureVerifXML = new SignatureVerifXML(lienFichierXML);
