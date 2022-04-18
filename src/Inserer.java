@@ -20,6 +20,12 @@ public class Inserer extends Requete {
         super(xmlFileName, "inserer.dtd");
     }
 
+    /**
+     * Retourne les valeurs du i eme tuple a inserer
+     * 
+     * @param i
+     * @return ArrayList<String>
+     */
     public ArrayList<String> getValues(int i) {
         ArrayList<String> valuersTab = new ArrayList<String>();
         try {
@@ -27,10 +33,9 @@ public class Inserer extends Requete {
             DocumentBuilder dBuilder = factory.newDocumentBuilder();
             Document doc = dBuilder.parse(new File(this.xmlFileName));
 
-            Element node = (Element)doc.getElementsByTagName("VALUES").item(i);
+            Element node = (Element) doc.getElementsByTagName("VALUES").item(i);
             NodeList nList = node.getElementsByTagName("VALUE");
 
-            System.out.println("nb values: " + nList.getLength());
             for (int j = 0; j < nList.getLength(); j++) {
                 Node value = nList.item(j);
                 valuersTab.add(value.getTextContent());
@@ -48,35 +53,42 @@ public class Inserer extends Requete {
         return valuersTab;
     }
 
-    // Convertion en SQL
+    /**
+     * Convertit le fichier xml en requete sql.
+     * 
+     * @return String
+     */
     public String xmlToSql() {
         Parser parser = new Parser(xmlFileName);
         String sqlRequest = "";
         int valuesNumber = parser.countElement("VALUES");
-        
+
         for (int i = 0; i < valuesNumber; i++) {
 
             sqlRequest += "INSERT INTO ";
             // Recup TABLE
             String tableString = parser.getTagString("TABLE");
-            System.out.println("table: " + tableString);
+
             if (!tableString.equals("")) {
                 sqlRequest += tableString + " VALUES (";
             }
 
             Pattern intergerPattern = Pattern.compile("\\d+$");
-            ArrayList<String> valuesList = this.getValues(i);
-            System.out.println("size: " + valuesList.size());
+            Pattern datePattern = Pattern.compile("^(3[01]"
+                    + "|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$");
 
+            ArrayList<String> valuesList = this.getValues(i);
 
             for (int j = 0; j < valuesList.size(); j++) {
                 String value = valuesList.get(j);
-                System.out.println("values: " + value);
 
                 // Si la valeur contien au moin une lettre alors cest un varchar en SQL
-                if (!intergerPattern.matcher(value).matches()) {
+                if (datePattern.matcher(value).matches()) {
+                    value = "str_to_date('" + value + "','%d/%m/%Y')";
+                } else if (!intergerPattern.matcher(value).matches()) {
                     value = "'" + value + "'";
                 }
+
                 if (j == 0) {
                     sqlRequest += value;
                 } else {
@@ -88,6 +100,12 @@ public class Inserer extends Requete {
         return sqlRequest;
     }
 
+    /**
+     * Convertit la reponse sql en fichier xml.
+     * 
+     * @param rs
+     * @return File
+     */
     public File sqlResponseToXML(ResultSet rs) {
         return null;
     }

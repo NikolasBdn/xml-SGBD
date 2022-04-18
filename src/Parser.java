@@ -35,6 +35,13 @@ public class Parser {
         docBuilderFactory = DocumentBuilderFactory.newInstance();
     }
 
+    
+    /** 
+     * Valide la DTD du fichier xml.
+     * @param xml
+     * @param dtd
+     * @return boolean
+     */
     public boolean validateWithExtDTDUsingDOM(String xml, String dtd) {
         boolean valid = true;
         // DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -70,11 +77,11 @@ public class Parser {
 
                 @Override
                 public void fatalError(SAXParseException exception) throws SAXException {
-                    // System.out.println("FATAL ERROR");
-                    // System.out.println("DTD validation ERROR: line " +
-                    // exception.getLineNumber() + ", column " + exception.getColumnNumber()
-                    // + ": " +
-                    // exception.getLocalizedMessage());
+                    System.out.println("FATAL ERROR");
+                    System.out.println("DTD validation ERROR: line " +
+                            exception.getLineNumber() + ", column " + exception.getColumnNumber()
+                            + ": " +
+                            exception.getLocalizedMessage());
                     throw new SAXException();
                 }
 
@@ -95,18 +102,23 @@ public class Parser {
         return valid;
     }
 
+    
+    /** 
+     * Compte le nombre d element avec le nom elementName
+     * @param elementName
+     * @return int
+     */
     public int countElement(String elementName) {
         int count = 0;
         try {
-        DocumentBuilder db = docBuilderFactory.newDocumentBuilder();
+            DocumentBuilder db = docBuilderFactory.newDocumentBuilder();
 
-        Document doc;
-        doc = db.parse(this.xmlFile);
-        NodeList list = doc.getElementsByTagName(elementName);
-        count = list.getLength();
-        System.out.println("Total of elements : " + list.getLength());
-        }
-        catch (SAXException e) {
+            Document doc;
+            doc = db.parse(this.xmlFile);
+            NodeList list = doc.getElementsByTagName(elementName);
+            count = list.getLength();
+
+        } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -117,6 +129,11 @@ public class Parser {
     }
 
     
+    /** 
+     * Retourne les valeurs de tous les enfants de l element avec le nom parent
+     * @param parent
+     * @return ArrayList<String>
+     */
     public ArrayList<String> getChildsTagList(String parent) {
         ArrayList<String> childsList = new ArrayList<String>();
         try {
@@ -146,6 +163,12 @@ public class Parser {
         return childsList;
     }
 
+    
+    /** 
+     * Retroune la valeur de l element avec le nom tag
+     * @param tag
+     * @return String
+     */
     public String getTagString(String tag) {
         String res = "";
         try {
@@ -168,6 +191,12 @@ public class Parser {
         return res;
     }
 
+    
+    /** 
+     * Cree le fichier xml de reponse pour une recherche sql
+     * @param data
+     * @param xmlFileName
+     */
     public void createResponseRecherche(ArrayList<ArrayList<String>> data, String xmlFileName) {
         try {
             DocumentBuilder db = docBuilderFactory.newDocumentBuilder();
@@ -199,13 +228,12 @@ public class Parser {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(doc);
 
-            StreamResult console = new StreamResult(System.out);
+            // StreamResult console = new StreamResult(System.out);
             StreamResult file = new StreamResult(new File(xmlFileName));
 
-            transformer.transform(source, console);
+            // transformer.transform(source, console);
 
             transformer.transform(source, file);
-            System.out.println("DONE");
 
         } catch (ParserConfigurationException e) {
             e.printStackTrace();

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE INSERT SYSTEM "inserer.dtd">
+<INSERT>
+    <TABLE>matchs</TABLE>
+    <VALUES>
+        <VALUE>33</VALUE>
+        <VALUE>15/09/2020</VALUE>
+        <VALUE>3000</VALUE>
+        <VALUE>2</VALUE>
+        <VALUE>FRA</VALUE>
+        <VALUE>11</VALUE>
+        <VALUE>2</VALUE>
+        <VALUE>TGA</VALUE>
+        <VALUE>4</VALUE>
+        <VALUE>2</VALUE>
+    </VALUES>
+    <VALUES>
+        <VALUE>34</VALUE>
+        <VALUE>02/04/2021</VALUE>
+        <VALUE>3000</VALUE>
+        <VALUE>4</VALUE>
+        <VALUE>SCO</VALUE>
+        <VALUE>10</VALUE>
+        <VALUE>222222</VALUE>
+        <VALUE>RSA</VALUE>
+        <VALUE>4</VALUE>
+        <VALUE>2</VALUE>
+    </VALUES>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>Ptd/harP5jr9V9EfH4NdIDdcHVw=</DigestValue></Reference></SignedInfo><SignatureValue>dBwotZvjqECjc7MxrPMaKURN/ohUya00hVhsJDmIBsPnIXgTUpGGAg==</SignatureValue><KeyInfo><KeyValue><DSAKeyValue><P>/KaCzo4Syrom78z3EQ5SbbB4sF7ey80etKII864WF64B81uRpH5t9jQTxeEu0ImbzRMqzVDZkVG9&#13;
+xD7nN1kuFw==</P><Q>li7dzDacuo67Jg7mtqEm2TRuOMU=</Q><G>Z4Rxsnqc9E7pGknFFH2xqaryRPBaQ01khpMdLRQnG541Awtx/XPaF5Bpsy4pNWMOHCBiNU0Nogps&#13;
+QW5QvnlMpA==</G><Y>h4VgUyiydu/yPjOVsjOFurGuG9e/Womb3B3aD3HZpMY2QY2jAVI8WrG3okS4XgNwtGu6dXjRCSYZ&#13;
+FvbaoEwZOA==</Y></DSAKeyValue></KeyValue></KeyInfo></Signature></INSERT>

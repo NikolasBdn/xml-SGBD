@@ -10,7 +10,11 @@ public class Rechercher extends Requete {
     super(xmlFileName, "recherche.dtd");
   }
 
-  // Convertion en SQL
+  /**
+   * Convertit le fichier xml en requete sql.
+   * 
+   * @return String
+   */
   public String xmlToSql() {
     Parser parser = new Parser(xmlFileName);
     String sqlRequest = "Select ";
@@ -18,7 +22,7 @@ public class Rechercher extends Requete {
     ArrayList<String> champsList = parser.getChildsTagList("CHAMPS");
     for (int i = 0; i < champsList.size(); i++) {
       String champs = champsList.get(i);
-      System.out.println(champs);
+
       if (i == 0) {
         sqlRequest += champs;
       } else {
@@ -45,6 +49,12 @@ public class Rechercher extends Requete {
     return sqlRequest;
   }
 
+  /**
+   * Convertit la reponse sql en fichier xml.
+   * 
+   * @param rs
+   * @return File
+   */
   public File sqlResponseToXML(ResultSet rs) {
     String[] xmlFileNameTab = this.xmlFileName.split("[.]");
     String responseFileName = xmlFileNameTab[0] + "-response.xml";
@@ -53,16 +63,13 @@ public class Rechercher extends Requete {
       ResultSetMetaData rsmd = rs.getMetaData();
       // getting the column type
       int column_count = rsmd.getColumnCount();
-      // System.out.println("column_count: " + column_count);
 
       while (rs.next()) {
         ArrayList<String> tuple = new ArrayList<String>();
         for (int i = 1; i < column_count + 1; i++) {
-          // System.out.println(rs.getString(i));
           tuple.add(rs.getString(i));
         }
         data.add(tuple);
-        // System.out.println("");
       }
     } catch (SQLException e) {
       e.printStackTrace();
@@ -71,7 +78,7 @@ public class Rechercher extends Requete {
     Parser parser = new Parser(responseFileName);
     parser.createResponseRecherche(data, responseFileName);
 
-    //Signature du fichier XML de reponse
+    // Signature du fichier XML de reponse
     SignatureVerifXML signatureVerifXML = new SignatureVerifXML(responseFileName);
     signatureVerifXML.signed();
     System.out.println("Signature de la reponse valide ? :" + signatureVerifXML.verifSignature());

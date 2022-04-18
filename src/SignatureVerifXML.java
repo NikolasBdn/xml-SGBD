@@ -22,6 +22,9 @@ public class SignatureVerifXML {
         this.lienFichierXML = lienFichierXML;
     }
 
+    /**
+     * Signe le fichier xml a l emplacement lienFichierXML
+     */
     public void signed() {
         try {
             File fXmlFile = new File(lienFichierXML);
@@ -62,7 +65,6 @@ public class SignatureVerifXML {
             KeyInfo ki = kif.newKeyInfo(Collections.singletonList(kv));
 
             XMLSignature signature = fac.newXMLSignature(si, ki);
-
             signature.sign(dsc);
 
             // Print result
@@ -78,17 +80,22 @@ public class SignatureVerifXML {
         }
     }
 
+    /**
+     * Verifie que le fichier xml soit bien signe
+     * 
+     * @return boolean
+     */
     public boolean verifSignature() {
         boolean res = false;
         try {
+            // verif hash
+
             // Verif signiature
-            System.out.println(lienFichierXML);
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
             dbf.setNamespaceAware(true);
 
             DocumentBuilder builder = dbf.newDocumentBuilder();
-            System.out.println("FILE: " + lienFichierXML);
             Document doc2 = builder.parse(new FileInputStream(lienFichierXML));
 
             NodeList nl = doc2.getElementsByTagNameNS(XMLSignature.XMLNS, "Signature");
@@ -100,10 +107,16 @@ public class SignatureVerifXML {
 
             XMLSignatureFactory factory = XMLSignatureFactory.getInstance("DOM");
 
-            XMLSignature signature2 = factory.unmarshalXMLSignature(valContext);
+            XMLSignature signature = factory.unmarshalXMLSignature(valContext);
             // boolean coreValidity = signature2.validate(valContext);
 
-            res = signature2.getSignatureValue().validate(valContext);
+            res = signature.getSignatureValue().validate(valContext);
+
+            Iterator i = signature.getSignedInfo().getReferences().iterator();
+            for (int j = 0; i.hasNext(); j++) {
+                boolean refValid = ((Reference) i.next()).validate(valContext);
+                res = res & refValid;
+            }
 
         } catch (Exception e) {
             e.printStackTrace();

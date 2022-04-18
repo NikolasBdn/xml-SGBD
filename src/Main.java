@@ -8,14 +8,6 @@ public class Main {
 
     // BDD Connection
     MysqlCon con = new MysqlCon();
-    // ResultSet rs = con.doRequest("select * from equipe;");
-    // try {
-    // while(rs.next()) {
-    // System.out.println(rs.getString("codeEquipe") + ", " + rs.getString("pays"));
-    // }
-    // } catch (SQLException e) {
-    // e.printStackTrace();
-    // }
 
     // Menu
     Scanner in = new Scanner(System.in);
@@ -49,15 +41,9 @@ public class Main {
       }
     }
 
-    // String[] tabLienFichierXml = lienFichierXML.split("/");
-    // String nomFichierXml = tabLienFichierXml[tabLienFichierXml.length - 1];
     String sqlReqString = "";
     ResultSet rs = null;
     Requete requete = null;
-    
-    // if (choix.equals("R") || choix.equals("I") ||choix.equals("M") ||choix.equals("E") || choix.equals("Q")) {
-
-    // }
 
     switch (choix) {
       case "R":
@@ -65,9 +51,6 @@ public class Main {
         break;
       case "I":
         requete = new Inserer(lienFichierXML);
-        // SignatureVerifXML signatrue = new SignatureVerifXML(lienFichierXML);
-        // signatrue.signed();
-        // System.out.println("verifed signature: " + signatrue.verifSignature());
         break;
       case "M":
         requete = new Maj(lienFichierXML);
@@ -75,22 +58,26 @@ public class Main {
       case "E":
         requete = new Effacer(lienFichierXML);
         break;
-    } 
+    }
     // SignatureVerifXML signatureVerifXML = new SignatureVerifXML(lienFichierXML);
     // signatureVerifXML.signed();
     if (requete.verifSignature() && requete.verifDTD()) {
       // Converte XML request to SQL
       sqlReqString = requete.xmlToSql();
-      System.out.println(sqlReqString);
-      
-      // Execut SQL request    
+      System.out.println("Requetes generees depuis le fichier XML : ");
+      String[] requestsTab = sqlReqString.split("\n");
+      for (String r : requestsTab) {
+        System.out.println("  " + r);
+      }
+      System.out.println();
+      // Execut SQL request
       if (choix.equals("R")) {
-        // Creation du fichier XML de reponse 
+        // Creation du fichier XML de reponse
         rs = con.doRequest(sqlReqString);
         requete.sqlResponseToXML(rs);
       } else {
         con.doStatement(sqlReqString);
-      } 
+      }
     }
     in.close();
   }

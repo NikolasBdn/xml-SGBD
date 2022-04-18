@@ -1,9 +1,24 @@
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.*;
+import java.util.Properties;
 public class MysqlCon{
-//   private Connection con;
-//   private String url, userName, pwd;
 
+/** 
+ * Connection à la base de donnée 
+ * @return Connection
+ */
   public Connection connect() {
+	Properties prop = new Properties();
+	try {
+		prop.load(new FileInputStream("config.properties"));
+	} catch (IOException e1) {
+		e1.printStackTrace();
+	}
+	String url = prop.getProperty("url");
+	String port = prop.getProperty("port");
+	String username = prop.getProperty("username");
+	String password = prop.getProperty("password");
 
   	 Connection con = null;
 
@@ -17,8 +32,8 @@ public class MysqlCon{
   	   System.out.println("connexion a la base de données");
 
   	   try {
-  	         String DBurl = "jdbc:mysql://localhost:3306/xml_tp";
-  	         con = DriverManager.getConnection(DBurl,"univ_user","password");
+  	         String DBurl = "jdbc:mysql://localhost:"+port+"/"+url;
+  	         con = DriverManager.getConnection(DBurl,username,password);
   	         System.out.println("connexion réussie");
   	   }
   	   catch (SQLException e) {
@@ -29,6 +44,11 @@ public class MysqlCon{
      }
 
 
+  
+  /** 
+   * @param sqlString
+   * @return ResultSet
+   */
   public  ResultSet doRequest(String sqlString) {
     ResultSet results = null;
     Connection con = connect();
@@ -41,6 +61,10 @@ public class MysqlCon{
     return results;
   }
 
+  
+  /** 
+   * @param sqlString
+   */
   public void doStatement(String sqlString){
 	  String[] requestsList = sqlString.split("\n");
 	try {

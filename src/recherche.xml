@@ -12,7 +12,7 @@
     <TABLE>joueur</TABLE>
 </TABLES>
 <CONDITION>codeEquipe = "FRA"</CONDITION>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>gD8d6HuDdLyMBvHU6SvyGFaPeEg=</DigestValue></Reference></SignedInfo><SignatureValue>cdWuzABUeVP6JcmOWzscIYy6n3l1SyDx+FoB9hemej0TEi7CAD2dJg==</SignatureValue><KeyInfo><KeyValue><DSAKeyValue><P>/KaCzo4Syrom78z3EQ5SbbB4sF7ey80etKII864WF64B81uRpH5t9jQTxeEu0ImbzRMqzVDZkVG9&#13;
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>sAz0kZuZ9FvtG7W7hqc2rSWnZko=</DigestValue></Reference></SignedInfo><SignatureValue>FVDwgBVGGU3kJob/kDdQvHom4m2BInsbdChAUc6XHJ1cab1DL6COQA==</SignatureValue><KeyInfo><KeyValue><DSAKeyValue><P>/KaCzo4Syrom78z3EQ5SbbB4sF7ey80etKII864WF64B81uRpH5t9jQTxeEu0ImbzRMqzVDZkVG9&#13;
 xD7nN1kuFw==</P><Q>li7dzDacuo67Jg7mtqEm2TRuOMU=</Q><G>Z4Rxsnqc9E7pGknFFH2xqaryRPBaQ01khpMdLRQnG541Awtx/XPaF5Bpsy4pNWMOHCBiNU0Nogps&#13;
-QW5QvnlMpA==</G><Y>FJQvXuH0KaW+x3zDfgcee3IJMwYCH15IPg7lL3R9Yx6rzQMBo9nnj/Cz8w05mZExEU0z6MWiOWb6&#13;
-bBr6BuZehg==</Y></DSAKeyValue></KeyValue></KeyInfo></Signature></SELECT>
+QW5QvnlMpA==</G><Y>bP7r1sy0TJuNstTK/eEwwGY+t+An6di/DYo5Hk+YgmFTuQ1O3lZNWwznwfOv1hY7uhhaAPhudPQm&#13;
+V+ud07yZXg==</Y></DSAKeyValue></KeyValue></KeyInfo></Signature></SELECT>
