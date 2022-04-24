@@ -42,6 +42,8 @@ public class Main {
       }
     }
 
+    System.out.println("");
+
     String sqlReqString = "";
     ResultSet rs = null;
     Requete requete = null;

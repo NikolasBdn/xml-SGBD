@@ -81,7 +81,7 @@ public class Rechercher extends Requete {
     // Signature du fichier XML de reponse
     SignatureVerifXML signatureVerifXML = new SignatureVerifXML(responseFileName);
     signatureVerifXML.signed();
-    System.out.println("Signature de la reponse valide ? :" + signatureVerifXML.verifSignature());
+    System.out.println("\nSignature de la reponse valide ? :" + signatureVerifXML.verifSignature());
 
     return new File(xmlFileName);
   }
