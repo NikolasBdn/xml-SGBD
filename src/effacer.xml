@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE DELETE SYSTEM "effacer.dtd">
 <DELETE>
-<TABLE>stade</TABLE>
-<CONDITION>numStade = 11</CONDITION>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>tJ6uFQNOn8cabw/r9P7ZiWUGgVo=</DigestValue></Reference></SignedInfo><SignatureValue>ZzhFcY4X1+wS19sQGC26L05HW2EBlLBOeFsCRCGhBOTghzDZS6vvzA==</SignatureValue><KeyInfo><KeyValue><DSAKeyValue><P>/KaCzo4Syrom78z3EQ5SbbB4sF7ey80etKII864WF64B81uRpH5t9jQTxeEu0ImbzRMqzVDZkVG9&#13;
+<TABLE>matchs</TABLE>
+<CONDITION>dateMatch = str_to_date('02/04/2021','%d/%m/%Y')</CONDITION><Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>z0brQtvy28Q2K5iF4EwesjG9Rrk=</DigestValue></Reference></SignedInfo><SignatureValue>MqDkae4+/lmNqeG54ZeeBD5B82NYsTMAiOHQBtDJx+LdnCa2t+yIGg==</SignatureValue><KeyInfo><KeyValue><DSAKeyValue><P>/KaCzo4Syrom78z3EQ5SbbB4sF7ey80etKII864WF64B81uRpH5t9jQTxeEu0ImbzRMqzVDZkVG9&#13;
 xD7nN1kuFw==</P><Q>li7dzDacuo67Jg7mtqEm2TRuOMU=</Q><G>Z4Rxsnqc9E7pGknFFH2xqaryRPBaQ01khpMdLRQnG541Awtx/XPaF5Bpsy4pNWMOHCBiNU0Nogps&#13;
-QW5QvnlMpA==</G><Y>ZLKhQ8WDqq9rpZPsZZ4Lx5VTIfX2ZfPBWnhEBAQnCiduMy8bWigNVD47nv/E1pLNeYvrMQeKpk2E&#13;
-r1H/hssCRQ==</Y></DSAKeyValue></KeyValue></KeyInfo></Signature></DELETE>
+QW5QvnlMpA==</G><Y>eNqdERKTt8cQz+FVmHiQePBYV6BQqiGfN1uU8ov711APPPEE5zdswwPTn2OsXjE3kvmaljiww0il&#13;
+VGgKbkX7dw==</Y></DSAKeyValue></KeyValue></KeyInfo></Signature></DELETE>

@@ -178,7 +178,7 @@ public class SignatureVerifXML {
         }
 
         public Key getKey() {
-            return pk;
+            return pk;              
         }
     }
 

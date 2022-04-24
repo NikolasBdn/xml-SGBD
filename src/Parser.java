@@ -24,6 +24,10 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.w3c.dom.Element;
 
+/**
+ * Classe Parser 
+ * Permet d acceder aux elements d un fichier xml et de creer des fichiers XML 
+ */
 public class Parser {
     private String xmlFileName;
     private File xmlFile;
@@ -44,7 +48,7 @@ public class Parser {
      */
     public boolean validateWithExtDTDUsingDOM(String xml, String dtd) {
         boolean valid = true;
-        // DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+
         try {
             DocumentBuilder db = docBuilderFactory.newDocumentBuilder();
 
@@ -54,8 +58,7 @@ public class Parser {
             TransformerFactory tf = TransformerFactory.newInstance();
             Transformer transformer = tf.newTransformer();
             transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, dtd);
-            // StringWriter writer = new StringWriter();
-            // StreamResult result = new StreamResult(writer);
+
             transformer.transform(source, new StreamResult(new File(this.xmlFileName)));
 
             docBuilderFactory.setValidating(true);
@@ -228,10 +231,7 @@ public class Parser {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(doc);
 
-            // StreamResult console = new StreamResult(System.out);
             StreamResult file = new StreamResult(new File(xmlFileName));
-
-            // transformer.transform(source, console);
 
             transformer.transform(source, file);
 

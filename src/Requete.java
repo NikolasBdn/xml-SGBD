@@ -16,7 +16,7 @@ public abstract class Requete {
      * @return boolean
      */
     public boolean verifSignature() {
-        // Veriff de la signature
+        // Verif de la signature
         SignatureVerifXML signature = new SignatureVerifXML(this.xmlFileName);
         // signature.signed();
         boolean resSignatureValidation = signature.verifSignature();
