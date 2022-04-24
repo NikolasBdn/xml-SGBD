@@ -24,6 +24,7 @@ public class Main {
       choix = in.nextLine();
       if (choix.equals("R") || choix.equals("I") || choix.equals("M") || choix.equals("E")) {
         choixCorrect = true;
+        // Q pour quitter
       } else if (choix.equals("Q")) {
         System.exit(0);
       }
@@ -44,7 +45,8 @@ public class Main {
     String sqlReqString = "";
     ResultSet rs = null;
     Requete requete = null;
-
+    
+    // Creation de la requete en fonction de l action
     switch (choix) {
       case "R":
         requete = new Rechercher(lienFichierXML);
@@ -59,6 +61,7 @@ public class Main {
         requete = new Effacer(lienFichierXML);
         break;
     }
+
     // SignatureVerifXML signatureVerifXML = new SignatureVerifXML(lienFichierXML);
     // signatureVerifXML.signed();
     if (requete.verifSignature() && requete.verifDTD()) {
@@ -72,10 +75,12 @@ public class Main {
       System.out.println();
       // Execut SQL request
       if (choix.equals("R")) {
-        // Creation du fichier XML de reponse
+        //Execution de la requete SQL de type SELECT
         rs = con.doRequest(sqlReqString);
+        // Creation du fichier XML de reponse
         requete.sqlResponseToXML(rs);
       } else {
+        //Execution de la requete SQL de type UPDATE, DELETE et INSERT
         con.doStatement(sqlReqString);
       }
     }

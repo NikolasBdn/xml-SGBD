@@ -2,6 +2,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
+/** 
+ * Classe chargee de la connetion à la base de donnee ainsi que l'execution de requetes
+ * Modifier les identifiant et l url de de la base de donnee dans le fichier: config.properties
+*/
 public class MysqlCon{
 
 /** 
@@ -46,6 +50,7 @@ public class MysqlCon{
 
   
   /** 
+   * Execute une requete SQL de type SELECT
    * @param sqlString
    * @return ResultSet
    */
@@ -63,6 +68,7 @@ public class MysqlCon{
 
   
   /** 
+   * Execution de la requete SQL de type UPDATE, DELETE et INSERT
    * @param sqlString
    */
   public void doStatement(String sqlString){

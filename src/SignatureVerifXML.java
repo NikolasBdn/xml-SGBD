@@ -15,6 +15,9 @@ import javax.xml.transform.stream.*;
 import org.xml.sax.helpers.DefaultHandler;
 import org.w3c.dom.*;
 
+/**
+ * Classe charge signer et de verifier le signature d'un fichier xml
+ */
 public class SignatureVerifXML {
     private String lienFichierXML;
 
