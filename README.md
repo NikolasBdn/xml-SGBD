@@ -41,6 +41,6 @@ Signature de la reponse valide ? :true
 Pour voir la reponse 
 
 ```
-cat response.xml
+cat response-recherche.xml
 ...
 ```
